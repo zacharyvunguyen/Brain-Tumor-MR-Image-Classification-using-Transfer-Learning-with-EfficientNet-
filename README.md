@@ -153,8 +153,20 @@ Source: John Hopkins Medical Center
 <p>&nbsp;</p>
 
 ### Libraries
-* Numpy
-* Pandas
+* Opencv-python 4.6.0.66
+* imutils
+  * A series of convenience functions to make basic image processing functions such as translation, rotation, resizing, skeletonization, displaying Matplotlib images, sorting contours, detecting edges, and much more easier with OpenCV and both Python 2.7 and Python 3.
+* matplotlib
+* PIL
+  * Python Imaging Library adds image processing capabilities to your Python interpreter.
+* seaborn
+* shutil
+* sklearn
+* tensorflow
+* keras
+* time
+* tqdm
+
 
 ### Images Cropping 
 <ul>
