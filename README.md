@@ -31,6 +31,9 @@ Utilizing the method of <strong>transfer learning</strong> and<strong> Efficient
            <li>
                 <p>The Dataset</p>
             </li>
+           <li>
+                <p>Libraries</p>
+            </li>
             <li>
                 <p>Cropping the original images</p>
             </li>
@@ -123,7 +126,7 @@ Brain Tumor Classification (MRI) Dataset from Kaggle
 <li style="font-weight: 400;"><span style="font-weight: 400;">Pituitary: 300</span></li>
 </ul>
 
-### More Information
+#### More Information
 
 ```angular2html
 Source: John Hopkins Medical Center
@@ -149,8 +152,11 @@ Source: John Hopkins Medical Center
 </ul>
 <p>&nbsp;</p>
 
+### Libraries
+* Numpy
+* Pandas
 
-## Images Cropping 
+### Images Cropping 
 <ul>
 <li><span style="font-weight: 400;">To make the MR images uniformly sized, resize all of them to 256x256 pixels</span></li>
 <li><span style="font-weight: 400;">Noise was another major issue with the MR images. For this reason, we need to crop out the unnecessary portion of the input images to improve their quality. </span></li>
