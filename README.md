@@ -181,11 +181,38 @@ Source: John Hopkins Medical Center
 
 ### Make the development of applications faster by creating a series of useful functions
 
-### Generate training, testing, and validation dataframes from testing and training directories (image paths and labels).
+### Generate training, testing, and validation dataframes from testing and training directories
+* Create a dataframe of image paths and class labels by reading in images
+  <img src="images/fullpath.png"  width="500" height="500">
+
+<table class="dataframe" border="1">
+<thead>
+<tr>
+<th>filepaths</th>
+<th>labels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2209</th>
+<td>/content/drive/MyDrive/0_data_science/mri_brai...</td>
+<td>meningioma</td>
+</tr>
+<tr>
+<th>907</th>
+<td>/content/drive/MyDrive/0_data_science/mri_brai...</td>
+<td>glioma</td>
+</tr>
+</tbody>
+</table>
 
 ### Manage the balance of the dataset by adding augmented images to minority classes
+* Creating a new folder named 'new_aug' for storing augmented images
+* Apply image augmentation by rotating, shifting, and flipping horizontally
+* Merge newly augmented images paths and labels with existing dataframes for training/testing/validation
 
-### Generates batches of augmented/normalized data for training, testing and validation dataframes
+### Generate batches of augmented/normalized data for training, testing and validation dataframes
+
 
 ### Display examples of training images
 
