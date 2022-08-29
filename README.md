@@ -163,7 +163,7 @@ Source: John Hopkins Medical Center
 <li><span style="font-weight: 400;">Exported the cropped MR images to other directory and ready for feeding the model </span></li>
 </ul>
 
-![](images/cropping.png)
+![](images/M_cropping.png)
 
 ## Model Developing & Deploying 🛠️ 🚀
 
