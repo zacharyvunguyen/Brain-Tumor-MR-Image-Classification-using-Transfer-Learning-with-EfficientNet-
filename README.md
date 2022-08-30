@@ -94,7 +94,7 @@ Utilizing the method of <strong>transfer learning</strong> and<strong> Efficient
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+![](images/app.png)
 The automatic classification of medical images plays a vital role in diagnosis, growth prediction, and treatment of brain tumors. The earlier a tumor brain is diagnosed, the more likely it will respond to treatment, which ultimately improves the survival rate for patients. Manually classifying brain tumors in large medical image databases is one of the most time-consuming and labor-intensive clinical tasks. As a result, automatic detection and classification procedures are desirable and worthwhile.
 
 This project is focused on multi-class brain tumors classification using pre-trained Convolutional Neural Networks (CNNs) and the EfficientNet B3 learning method.<br>
