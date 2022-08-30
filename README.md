@@ -212,23 +212,111 @@ Source: John Hopkins Medical Center
 * Merge newly augmented images paths and labels with existing dataframes for training/testing/validation
 
 ### Generate batches of augmented/normalized data for training, testing and validation dataframes
+* Using the flow_from_dataframe function, generate batches of tensor image data with real-time data augmentation
+  * Tensorflow can use a dataframe to determine which images to use and what classification each image belongs to.
 
+* In the test_gen, we want to calculate the batch size and test steps such that `batch_size` * `test_steps` = number of samples in the test set
+  * By doing this, we ensure that we run through all sample sets exactly once.
 
 ### Display examples of training images
 
-### Create models using transfer learning with EfficientNet (B0,B3,B5,B7)
+* Display the first 25 images along with their labels of the first batch in training data generator
 
+### Create models using transfer learning with EfficientNet (B0,B3,B5,B7)
+* Training our model using EfficientNet with transferred imagenet weights as a base model
+* Removing the top layer from our base model and setting it to non-trainable
+  * By doing this, we can pass the image data through the pretrained model and get an output
+  *  Using this output as inputs for our additional dense layers, we will be able to train them.
 ### Custom model callback
+
+When training is complete, the model weights are set to the epoch with the lowest validation loss.
+`callbacks= LR_ASK(model, epochs,  ask_epoch, dwell=True, factor=.4)`
+* model: A string representing the name of the compiled model
+* epochs: An integer representing the number of epochs to run specified in model.fit
+* ask_epochs: if ask_epochs = 10, the model will train for 10 epochs before asking for user input
+*   User input: `h` or a number (integer value)
+* `H` or `h': ex: `ask_epochs = h` the model training process would be halted
+* A number (integer value): for example `ask_epochs = 5` would continue training for 5 epochs, then the user would be asked for the new value.
+* dwell: a boolean value (True/False)
+  * True: the model will keep track of the current epoch validation loss and compare it with the lowest validation loss so far.
+    * If the current epoch validation loss is less than the lowest validation loss, the current epoch weights would be saved at the best weight
+    * When the current epoch validation loss exceeds the lowest validation loss, the new learning rate would be lowered by multiplying the current learning rate by the `factor` (a float value between 0 & 1)
 
 ### Train model
 
 ### Display metrics (loss and accuracy) for training and validation
+* Graph the change in validation accuracy values and validation loss values between training and validating datasets over time.
 
 ### Making prediction on the test set
+* Define a function which takes in a test generator and an integer 'test_steps'
+* A confusion matrix is generated based on the test set predictions
+* Generate classification report
 
-### Confusion matrix
+![](images/matrix.png)
+
+<table style="height: 234px;" width="605">
+<tbody>
+<tr>
+<td style="width: 114.195px;">&nbsp;</td>
+<td style="width: 114.195px;">precision</td>
+<td style="width: 114.195px;">recall</td>
+<td style="width: 114.195px;">f1-score</td>
+<td style="width: 114.219px;">support</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">glioma&nbsp; &nbsp;&nbsp;</td>
+<td style="width: 114.195px;">1.0000</td>
+<td style="width: 114.195px;">0.9767</td>
+<td style="width: 114.195px;">0.9882</td>
+<td style="width: 114.219px;">300</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">meningioma&nbsp; &nbsp;&nbsp;</td>
+<td style="width: 114.195px;">0.9838</td>
+<td style="width: 114.195px;">0.9902</td>
+<td style="width: 114.195px;">0.9870</td>
+<td style="width: 114.219px;">306</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">notumor&nbsp; &nbsp;&nbsp;</td>
+<td style="width: 114.195px;">0.9951</td>
+<td style="width: 114.195px;">1.0000</td>
+<td style="width: 114.195px;">0.9975</td>
+<td style="width: 114.219px;">405</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">pituitary&nbsp; &nbsp;&nbsp;</td>
+<td style="width: 114.195px;">0.9901</td>
+<td style="width: 114.195px;">1.0000</td>
+<td style="width: 114.195px;">0.9950</td>
+<td style="width: 114.219px;">300</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">accuracy</td>
+<td style="width: 114.195px;">&nbsp;</td>
+<td style="width: 114.195px;">&nbsp;</td>
+<td style="width: 114.195px;">0.9924&nbsp;</td>
+<td style="width: 114.219px;">1311</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">macro avg</td>
+<td style="width: 114.195px;">0.9922&nbsp; &nbsp;</td>
+<td style="width: 114.195px;">0.9917</td>
+<td style="width: 114.195px;">0.9919</td>
+<td style="width: 114.219px;">1311</td>
+</tr>
+<tr>
+<td style="width: 114.195px;">weighted avg</td>
+<td style="width: 114.195px;">0.9924</td>
+<td style="width: 114.195px;">0.9924</td>
+<td style="width: 114.195px;">0.9924</td>
+<td style="width: 114.219px;">1311</td>
+</tr>
+</tbody>
+</table>
 
 ### ROC & AUC curves
+![](images/rocauc.png)
 
 ## Export and deploy trained model
 
