@@ -1,6 +1,7 @@
 /.idea/Brain-Tumor-MR-Image-Classification-using-Transfer-Learning-with-EfficientNet-.iml
 /.idea/misc.xml
 /.idea/modules.xml
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
+/img.png
+/img_1.png
+/.idea/
